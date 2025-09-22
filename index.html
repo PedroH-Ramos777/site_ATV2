@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Heniruque Ramos Pereira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="saudacao"></h2> <h1>Pedro Heniruque Ramos Pereira</h1>
+        <img src="ft perfil.png" alt="Foto de perfil">
+        <p>Me chamo Pedro Henrique, tenho 21 anos de idade. Nasci em João Pessoa - PB e vivi na cidade até meus 4 anos de idade, depois viajei para a cidade de Taperoá - PB onde me criei. Tenho interesse no âmbito da programação o desenvolvimento fullstack, pois tenho a oportunidade estar me contato em todas as áreas da programação. Tenho como objetivo a curto prazo finalizar uma projeto pessoal fullstack e a longo prazo me graduar em ADS.</p>
+        
+        <button id="btn-info">Mostrar Mais</button>
+        <div id="info-adicional" class="hidden">
+            <p><strong>Meus Lazeres:</strong> Gosto de assistir series de outras culturas; praticar esportes: musculação, basquete e vôlei; e programar.</p>
+        </div>
+
+        <a href="https://github.com/PedroH-Ramos777" target="_blank">Minha Rede Social</a>
+    </div>
+
+    <!--Js-->
+
+    <script>
+
+        // Pega o elemento H2 que tem o id="saudacao"
+        const elementoSaudacao = document.getElementById('saudacao');
+
+        // Pega a hora atual do computador do usuário (de 0 a 23)
+        const horaAtual = new Date().getHours();
+        let saudacao;
+
+        // Define a mensagem com base na hora
+        if (horaAtual < 12) {
+            saudacao = 'Bom dia!';
+        } else if (horaAtual < 18) {
+            saudacao = 'Boa tarde!';
+        } else {
+            saudacao = 'Boa noite!';
+        }
+
+        // Insere a mensagem de saudação no elemento H2
+        elementoSaudacao.textContent = saudacao;
+
+
+        // --- FUNCIONALIDADE 2: BOTÃO INTERATIVO ---
+
+        // Pega o botão que tem o id="btn-info"
+        const btnInfo = document.getElementById('btn-info');
+        // Pega a div que tem o id="info-adicional"
+        const infoAdicional = document.getElementById('info-adicional');
+
+        // Adiciona um "ouvinte de evento" de clique no botão
+        btnInfo.addEventListener('click', function() {
+            // Verifica se a informação adicional está escondida
+            if (infoAdicional.classList.contains('hidden')) {
+                // Se estiver, remove a classe 'hidden' para mostrá-la
+                infoAdicional.classList.remove('hidden');
+                // E muda o texto do botão
+                btnInfo.textContent = 'Mostrar Menos';
+            } else {
+                // Se não estiver, adiciona a classe 'hidden' para esconder
+                infoAdicional.classList.add('hidden');
+                // E volta o texto do botão para o original
+                btnInfo.textContent = 'Mostrar Mais';
+            }
+        });
+    </script>
+
+</body>
+</html>
